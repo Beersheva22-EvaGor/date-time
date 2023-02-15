@@ -51,7 +51,6 @@ class DateTimeTests {
 	
 		System.out.format("\r\n\t -- Current DateTime Canada TimeZones: --");	
 		ZoneId.getAvailableZoneIds().stream().filter(e -> e.startsWith("Canada")).forEach(el -> System.out.format("\r\n%20s  %-50s", el, ZonedDateTime.now(ZoneId.of(el)).toLocalDateTime()));
-		
 	}
 	
 	@Test
@@ -63,8 +62,8 @@ class DateTimeTests {
 
 	@Test
 	void workingDaysTest() {
-		WorkingDays wd = new WorkingDays(10, new DayOfWeek[]{DayOfWeek.WEDNESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.FRIDAY, DayOfWeek.SATURDAY});
-		assertEquals(LocalDate.of(2023, 03, 05), wd.adjustInto(LocalDate.now()));
+		WorkingDays wd = new WorkingDays(15, new DayOfWeek[]{DayOfWeek.SUNDAY, DayOfWeek.MONDAY , DayOfWeek.WEDNESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY, DayOfWeek.FRIDAY, DayOfWeek.SATURDAY});
+		assertEquals(LocalDate.of(2023, 5,30), wd.adjustInto(LocalDate.of(2023, 2, 15)));
 		
 		
 	}
